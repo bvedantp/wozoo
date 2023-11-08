@@ -640,19 +640,19 @@ background: linear-gradient(93deg, rgba(12,6,27,1) 0%, rgba(59,47,123,1) 100%);
 `;function sP(){return v.jsxs(rP,{children:[v.jsx(gt,{size:80,style:{left:"25%",animationDelay:"0s"}}),v.jsx(gt,{size:20,style:{left:"10%",animationDelay:"2s",animationDuration:"12s"}}),v.jsx(gt,{size:30,style:{left:"35%",animationDelay:"0s"}}),v.jsx(gt,{size:60,style:{left:"50%",animationDelay:"3s",animationDuration:"12s"}}),v.jsx(gt,{size:50,style:{left:"15%",animationDelay:"5s"}}),v.jsx(gt,{size:90,style:{left:"70%",animationDelay:"8s",animationDuration:"12s"}}),v.jsx(gt,{size:100,style:{left:"95%",animationDelay:"1s"}}),v.jsx(gt,{size:10,style:{left:"30%",animationDelay:"3s",animationDuration:"12s"}}),v.jsx(gt,{size:20,style:{left:"45%",animationDelay:"9s"}}),v.jsx(gt,{size:40,style:{left:"60%",animationDelay:"10s",animationDuration:"12s"}}),v.jsxs(iP,{children:[v.jsx("img",{src:eP,alt:"Namaste"}),v.jsxs("p",{children:["Who are we? ",v.jsx("br",{}),"Think of Wozoo as that friend who's always on the same wavelength as you. We get your vibe, your energy, and your desire for unforgettable memories. And guess what? We're not just here to recommend experiences - we're here to matchmake you with the activities and hangout buddies that sync perfectly with your style."]})]}),v.jsxs(oP,{children:[v.jsx("button",{children:"Know More"}),v.jsx("img",{src:tP,alt:"FooterImg"})]})]})}const aP=w1`
   @font-face {
   font-family: 'QuickSand';
-  src: url('/assets/fonts/Quicksand-Regular.ttf') format('truetype');
+  src: url('./assets/fonts/Quicksand-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   }
   @font-face {
     font-family: 'QuickSand';
-    src: url('/assets/fonts/Quicksand-Bold.ttf') format('truetype');
+    src: url('./assets/fonts/Quicksand-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
   }
   @font-face {
     font-family: 'Dangsik';
-    src: url('/assets/fonts/DANGSIK.ttf') format('truetype');
+    src: url('./assets/fonts/DANGSIK.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
