@@ -1277,7 +1277,8 @@ background: linear-gradient(93deg, rgba(12,6,27,1) 0%, rgba(59,47,123,1) 100%);
     box-sizing: border-box;
   }
 `,Hj=T.div`
-  background-color: #e100ff;
+  background: #e100ff;
+  background: linear-gradient(180deg, rgba(247,200,16,1) 0%, rgba(226,98,172,1) 100%);
   position: fixed;
   top: 0;
   right: 0;
@@ -1302,24 +1303,25 @@ background: linear-gradient(93deg, rgba(12,6,27,1) 0%, rgba(59,47,123,1) 100%);
     pointer-events: none;
 
     #tilt-content {
-      transform: rotate(-20deg) translateZ(0);
+      transform: rotate(-10deg) translateZ(0);
     }
   }
 `,Uj=T.div`
-  transform-origin: 40% 60%;
+  transform-origin: -10% 20%;
   background-color: white;
   width: 100%;
   position: relative;
   pointer-events: auto;
   z-index: 3;
   transition: transform 0.3s ease;
+  box-shadow: 10px 10px 20px 1px black;
 `,Gj=T.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background: rgb(12,6,27);
-  background: linear-gradient(93deg, rgba(12,6,27,1) 0%, rgba(59,47,123,1) 100%);
+  background: rgb(31,22,67);
+  background: linear-gradient(133deg, rgba(31,22,67,1) 0%, rgba(56,45,118,1) 100%);
 
   img {
     width: 70px;
@@ -1340,4 +1342,5 @@ background: linear-gradient(93deg, rgba(12,6,27,1) 0%, rgba(59,47,123,1) 100%);
   z-index: 99;
 
   display: ${e=>e.show?"flex":"none"};
+  transition: all 1s;
 `;function Qj(){const e=WE(),[t,n]=M.useState(!1),[r,i]=M.useState(!1);let o=0;M.useEffect(()=>{const a=()=>{let l=window.pageYOffset||document.documentElement.scrollTop;l>o?i(!1):i(!0),o=l<=0?0:l};return window.addEventListener("scroll",a),()=>{window.removeEventListener("scroll",a)}},[]);const s=()=>{const a={duration:100,smooth:!0};gv.scrollToTop(a)};return h.jsx(h.Fragment,{children:e?h.jsxs(h.Fragment,{children:[h.jsx(Mp,{}),h.jsxs(Hj,{children:[h.jsx($E,{onClick:()=>n(a=>!a),style:{fontSize:"26px"}}),h.jsx("p",{children:"Home"}),h.jsx("p",{children:"Products"}),h.jsx("p",{children:"About Us"})]}),h.jsx(Wj,{className:t?"tilt":"",children:h.jsx(Uj,{id:"tilt-content",children:h.jsxs(h.Fragment,{children:[h.jsxs(Gj,{children:[h.jsx("img",{src:va}),h.jsx(HE,{onClick:()=>n(a=>!a),style:{fontSize:"26px",color:"white"}})]}),h.jsx(JE,{}),h.jsx(lT,{}),h.jsx(pT,{}),h.jsx(kT,{}),h.jsx(Fn,{isPrimary:!0,titleColor:"white",background:"#E263B2"}),h.jsx(Fn,{type:"music",circleColor:"#E263B2",circleContrast:"#F2D212"}),h.jsx(Fn,{type:"funny",circleColor:"#E263B2",circleContrast:"#F2D212"}),h.jsx(Fn,{type:"theatre",circleColor:"#E263B2",circleContrast:"#F2D212"}),h.jsx(Fn,{type:"festival",circleColor:"#E263B2",circleContrast:"#F2D212"}),h.jsx(Fn,{type:"business",circleColor:"#E263B2",circleContrast:"#F2D212"}),h.jsx(HT,{}),h.jsx(Lp,{onClick:s,show:r,children:h.jsx(bp,{})})]})})})]}):h.jsxs(h.Fragment,{children:[h.jsx(Mp,{}),h.jsx(Gw,{}),h.jsx(UC,{}),h.jsx(dE,{}),h.jsx(tE,{}),h.jsx(DE,{}),h.jsx(Nn,{isPrimary:!0,titleColor:"white",background:"#E263B2"}),h.jsx(Nn,{type:"music",circleColor:"#E263B2",circleContrast:"#F2D212",imageHeight:"200px",isWhiteButton:!0}),h.jsx(Nn,{type:"funny",circleColor:"#E263B2",circleContrast:"#F2D212",imageHeight:"200px",isWhiteButton:!0}),h.jsx(Nn,{type:"theatre",circleColor:"#E263B2",circleContrast:"#F2D212",imageHeight:"200px",isWhiteButton:!0}),h.jsx(Nn,{type:"festival",circleColor:"#E263B2",circleContrast:"#F2D212",imageHeight:"200px",isWhiteButton:!0}),h.jsx(Nn,{type:"business",circleColor:"#E263B2",circleContrast:"#F2D212",imageHeight:"200px",isWhiteButton:!0}),h.jsx(BE,{}),h.jsx(Lp,{onClick:s,show:r,children:h.jsx(bp,{})})]})})}Ml.createRoot(document.getElementById("root")).render(h.jsx(Ye.StrictMode,{children:h.jsx(Qj,{})}));
