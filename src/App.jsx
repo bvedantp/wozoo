@@ -11,12 +11,16 @@ import IcBaselineKeyboardArrowRight from '~icons/ic/baseline-keyboard-arrow-righ
 import MaterialSymbolsChevronLeftRounded from '~icons/material-symbols/chevron-left-rounded'
 import { createGlobalStyle, styled } from 'styled-components';
 import { useIsMobile } from './utility/useIsMobile'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import TitlePageMobile from './MobileComponents/TitlePageMobile'
 import WozooListMobile from './MobileComponents/WozooListMobile'
 import CountdownPageMobile from './MobileComponents/CountdownPageMobile'
 import BrowseGenreMobile from './MobileComponents/BrowseGenreMobile'
+import PopularEventsMobile from './MobileComponents/PopularEventsMobile'
+import FooterMobile from './MobileComponents/FooterMobile'
+import { animateScroll } from 'react-scroll';
+import IcSharpKeyboardDoubleArrowUp from '~icons/ic/sharp-keyboard-double-arrow-up'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -58,7 +62,8 @@ const GlobalStyle = createGlobalStyle`
 
 //styles for mobile
 const SideNavMobile = styled.div`
-  background-color: #e100ff;
+  background: #e100ff;
+  background: linear-gradient(180deg, rgba(247,200,16,1) 0%, rgba(226,98,172,1) 100%);
   position: fixed;
   top: 0;
   right: 0;
@@ -84,35 +89,84 @@ const OuterLayer = styled.div`
     pointer-events: none;
 
     #tilt-content {
-      transform: rotate(-20deg) translateZ(0);
+      transform: rotate(-10deg) translateZ(0);
     }
   }
 `
 const TiltEffect = styled.div`
-  transform-origin: 40% 60%;
+  transform-origin: -10% 20%;
   background-color: white;
   width: 100%;
   position: relative;
   pointer-events: auto;
   z-index: 3;
   transition: transform 0.3s ease;
+  box-shadow: 10px 10px 20px 1px black;
 `
 const HeaderMobile = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background: rgb(12,6,27);
-  background: linear-gradient(93deg, rgba(12,6,27,1) 0%, rgba(59,47,123,1) 100%);
+  background: rgb(31,22,67);
+  background: linear-gradient(133deg, rgba(31,22,67,1) 0%, rgba(56,45,118,1) 100%);
 
   img {
     width: 70px;
   }
 `
+const ScrollUpwards = styled.button`
+  position: fixed; // Example: fixed position
+  bottom: 20px;    // Example: position from bottom
+  right: 20px;     // Example: position from right
+  justify-content: center;
+  align-items: center;
+  background-color: yellow;
+  color: black;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  z-index: 99;
+
+  display: ${props => props.show ? 'flex' : 'none'};
+  transition: all 1s;
+`;
 
 function App() {
   const isMobile = useIsMobile();
   const [sideMenuOpen, setSideMenuOpen] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+  let lastScrollTop = 0;
+
+  useEffect(() => {
+      const handleScroll = () => {
+          let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+          if (currentScroll > lastScrollTop) {
+              // Scrolling down
+              setShowButton(false);
+          } else {
+              // Scrolling up
+              setShowButton(true);
+          }
+          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+      };
+
+      window.addEventListener('scroll', handleScroll);
+
+      return () => {
+          window.removeEventListener('scroll', handleScroll);
+      };
+  }, []);
+
+  const scrollToTop = () => {
+    const options = {
+      duration: 100,
+      smooth: true,
+    };
+    animateScroll.scrollToTop(options);
+  };
 
   return (
     <>
@@ -139,6 +193,16 @@ function App() {
                 <WozooListMobile/>
                 <CountdownPageMobile/>
                 <BrowseGenreMobile/>
+                <PopularEventsMobile isPrimary={true} titleColor={'white'} background={'#E263B2'}/>
+                <PopularEventsMobile type={'music'} circleColor={'#E263B2'} circleContrast={'#F2D212'} />
+                <PopularEventsMobile type={'funny'} circleColor={'#E263B2'} circleContrast={'#F2D212'} />
+                <PopularEventsMobile type={'theatre'} circleColor={'#E263B2'} circleContrast={'#F2D212'} />
+                <PopularEventsMobile type={'festival'} circleColor={'#E263B2'} circleContrast={'#F2D212'} />
+                <PopularEventsMobile type={'business'} circleColor={'#E263B2'} circleContrast={'#F2D212'} />
+                <FooterMobile/>
+                <ScrollUpwards onClick={scrollToTop} show={showButton}>
+                  <IcSharpKeyboardDoubleArrowUp />
+                </ScrollUpwards>
               </>
             </TiltEffect>
           </OuterLayer>
@@ -156,9 +220,11 @@ function App() {
           <PopularEvents type={'funny'} circleColor={'#E263B2'} circleContrast={'#F2D212'} imageHeight={'200px'} isWhiteButton={true}/>
           <PopularEvents type={'theatre'} circleColor={'#E263B2'} circleContrast={'#F2D212'} imageHeight={'200px'} isWhiteButton={true}/>
           <PopularEvents type={'festival'} circleColor={'#E263B2'} circleContrast={'#F2D212'} imageHeight={'200px'} isWhiteButton={true}/>
-          <PopularEvents type={'business'} circleColor={'#E263B2'} circleContrast={'#F2D212'} imageHeight={'200px'} isWhiteButton={true}/>
-          
+          <PopularEvents type={'business'} circleColor={'#E263B2'} circleContrast={'#F2D212'} imageHeight={'200px'} isWhiteButton={true}/>          
           <Footer/>  
+          <ScrollUpwards onClick={scrollToTop} show={showButton}>
+            <IcSharpKeyboardDoubleArrowUp />
+          </ScrollUpwards>
         </>}
     </>
   )
