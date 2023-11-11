@@ -160,6 +160,33 @@ const BottomPart = styled.div`
         font-size: 1.5vw;
     }
 `
+const KnowMoreButton = styled.button`
+  padding: 20px;
+  border: 2px solid yellow;
+  background-color: transparent;
+  color: yellow;
+  border-radius: 10px;
+  font-size: 2vw;
+  font-family: 'Dangsik', sans-serif;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: yellow;
+  text-transform: uppercase;
+  cursor: pointer;
+  /* Specify the transition properties */
+  transition: -webkit-text-fill-color 500ms, 
+              -webkit-text-stroke-width 500ms,
+              box-shadow 500ms,
+              background-color 500ms;
+  &:hover {
+    -webkit-text-fill-color: #1A1338;
+    -webkit-text-stroke-width: 0;
+    box-shadow: 0 0 1px yellow,  /* Inner glow */
+                0 0 3px yellow, /* Middle glow */
+                0 0 9px yellow; /* Outer glow */
+    background-color: #ffff005d;
+  }
+`
 
 export default function Footer() {
 
@@ -179,11 +206,11 @@ export default function Footer() {
             {/* end of animation */}
             <TopPart>
                 <img src={Namaste} alt="Namaste" />
-                <p>Who are we? <br />
+                <p><b style={{ fontWeight: 800 }}>Who are we?</b> <br />
                 Think of Wozoo as that friend who's always on the same wavelength as you. We get your vibe, your energy, and your desire for unforgettable memories. And guess what? We're not just here to recommend experiences - we're here to matchmake you with the activities and hangout buddies that sync perfectly with your style.</p>
             </TopPart>
             <BottomPart>
-                <button>Know More</button>
+                <KnowMoreButton>Know More</KnowMoreButton>
                 <img src={BottomImage} alt="FooterImg" />
             </BottomPart>
         </Base>

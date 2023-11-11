@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Marquee from "./Marquee";
 import { motion } from "framer-motion";
+import InfinityMoving from "./InfinityMoving";
 
 const Page = styled.div`
   display: flex;
@@ -13,16 +13,19 @@ const Page = styled.div`
 `;
 
 const CenterArea = styled(motion.div)`
+    position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     height: 100%;
-    padding: 0 10%;
-    gap: 50px;
+    padding: 10%;
 
     .title {
-        font-size: 4.5vw;
+        font-size: 15vw;
         font-family: 'Dangsik', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         i {
             background: rgb(247,200,16);
@@ -35,20 +38,21 @@ const CenterArea = styled(motion.div)`
     }
 
     .paragraph {
-        font-size: 2vw;
-        width: 90%;
+        font-size: 6vw;
+        text-align: center;
         padding: 20px 0;
+        line-height: 1.3;
     }
 `
 const LeftBox = styled.div`
-    width: 50%;
-`
-const RightBox = styled.div`
-    width: 50%;
+    /* width: 50%; */
+    /* position: relative; */
+    z-index: 6;
 `
 const SearchBar = styled(motion.div)`
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
 
     .inputClass {
@@ -120,19 +124,18 @@ const child = {
 };
 
 
-export default function TitlePage() {
+export default function TitlePageMobile() {
   // Split the title into parts to preserve the <i> tag
   const words = ["Get a :", <i key="new-life"> NEW LIFE </i>];
   
   return (
     <Page>
-      <Marquee />
-
       <CenterArea>
+        <InfinityMoving/>
           <LeftBox>
                 <motion.div
                   className="title"
-                  style={{ overflow: "hidden", display: "flex", fontSize: "4vw" }}
+                  style={{ overflow: "hidden" }}
                   variants={container}
                   initial="hidden"
                   animate="visible"
@@ -140,7 +143,6 @@ export default function TitlePage() {
                   {words.map((word, index) => (
                     <motion.span
                       variants={child}
-                      style={{ marginRight: "5px" }}
                       key={index}
                     >
                       {word}
@@ -156,24 +158,23 @@ export default function TitlePage() {
                 >
                   Explore fun areas near you and bring out the woobie in you.
                 </motion.p>
-          <SearchBar>
-            <motion.input 
-              className="inputClass" 
-              initial={{ opacity: 0, y: 20 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ delay: 2, duration: 1 }} 
-              type="text" 
-              placeholder="Type 'fun'" />
-            <motion.button 
-              className="buttonClass" 
-              initial={{ opacity: 0, y: 20 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ delay: 2, duration: 1 }}>
-                Search
-            </motion.button>
-          </SearchBar>
+                <SearchBar>
+                    <motion.input 
+                    className="inputClass" 
+                    initial={{ opacity: 0, y: 20 }} 
+                    animate={{ opacity: 1, y: 0 }} 
+                    transition={{ delay: 2, duration: 1 }} 
+                    type="text" 
+                    placeholder="Type 'fun'" />
+                    <motion.button 
+                    className="buttonClass" 
+                    initial={{ opacity: 0, y: 20 }} 
+                    animate={{ opacity: 1, y: 0 }} 
+                    transition={{ delay: 2, duration: 1 }}>
+                        Search
+                    </motion.button>
+                </SearchBar>
         </LeftBox>
-        <RightBox>img</RightBox>
       </CenterArea>
     </Page>
   );

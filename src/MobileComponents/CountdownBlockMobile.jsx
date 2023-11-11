@@ -9,15 +9,12 @@ const Square = styled.div`
         justify-content: center;
         align-items: center;
         background-color: #E263B2;
-        width: 10vw;
-        height: 10vw;
-        font-size: 5vw;
-        border-radius: 10px;
+        width: 60px;
+        height: 60px;
+        /* padding: 10px; */
+        font-size: 2rem;
+        /* border-radius: 10px; */
         transition: scale 200ms;
-
-        &:hover {
-            scale: 1.05;
-        }
 
         p {
             font-family: 'Dangsik', sans-serif;
@@ -27,10 +24,10 @@ const Square = styled.div`
 const Duration = styled.p`
         color: yellow;
         text-transform: capitalize;
-        font-size: 2vw;
+        font-size: 0.7rem;
 `
 
-export default function CountdownBlock(props) {
+export default function CountdownBlockMobile(props) {
     const [count, setCount] = useState(0);
     const [isInView, setIsInView] = useState(false);
     const controls = useAnimation();
@@ -39,7 +36,7 @@ export default function CountdownBlock(props) {
         if (isInView) {
             // Start the scale and count animations only if the component is in view
             controls.start({
-                scale: 1,
+                scaleY: 1,
                 transition: {
                     duration: 0.8,
                     type: "spring",
@@ -65,12 +62,12 @@ export default function CountdownBlock(props) {
 
     return (
         <motion.div
-            initial={{ scale: 0.3 }}
+            initial={{ scaleY: 0 }}
             animate={controls}
             whileInView={() => setIsInView(true)}
             viewport={{ once: true }}
         >
-            <Square>
+            <Square className={props.className ? props.className : ''}>
                 <p>{count}</p>
                 <Duration>{props.duration}</Duration>
             </Square>
@@ -78,7 +75,7 @@ export default function CountdownBlock(props) {
     )
 }
 
-CountdownBlock.propTypes = {
+CountdownBlockMobile.propTypes = {
     number: PropTypes.number.isRequired,
     duration: PropTypes.oneOf(['days', 'hours', 'mins', 'secs']).isRequired,
 };

@@ -6,7 +6,7 @@ import LineMdArrowLeftCircle from '~icons/line-md/arrow-left-circle'
 import PropTypes from 'prop-types';
 
 const Base = styled.div`
-    height: 70vh;
+    height: ${props => props.isPrimary ? '70vh' : '55vh'};
     background-color: ${props => props.background ? props.background : 'white'};
     display: flex;
     flex-direction: column;
@@ -26,6 +26,7 @@ const Title = styled.div`
     color: ${props => props.titleColor ? props.titleColor : 'black'};
     align-self: flex-start;
     margin-bottom: 20px;
+    text-transform: uppercase;
 `;
 const Circle = styled.span`
     background-color: ${props => props.circleColor ? props.circleColor : '#F2D212'};
@@ -124,13 +125,13 @@ export default function PopularEvents(props) {
     };
 
     return (
-        <Base background={props.background}>
+        <Base id={props.type} background={props.background} isPrimary={props.isPrimary}>
             <Container>
                 <LeftScrollButton isWhiteButton={props.isWhiteButton} onClick={scrollLeft}>
                     <LineMdArrowLeftCircle/>
                 </LeftScrollButton>
                 <Title titleColor={props.titleColor}>
-                    <Circle circleColor={props.circleColor} circleContrast={props.circleContrast}><MajesticonsTrendingUpLine/></Circle> POPULAR EVENTS
+                    <Circle circleColor={props.circleColor} circleContrast={props.circleContrast}><MajesticonsTrendingUpLine/></Circle> {props.type ? props.type : 'POPULAR'} EVENTS
                 </Title>
                 <EventRow ref={eventRowRef}>
                     <EventCard imageHeight={props.imageHeight}/>

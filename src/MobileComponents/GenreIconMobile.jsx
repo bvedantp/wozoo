@@ -7,24 +7,23 @@ import festivalIcon from '../assets/icons/festival.mp4';
 import businessIcon from '../assets/icons/business.mp4';
 
 const Container = styled.div`
-    /* width: 10vw; */
+    width: 30%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
 `
 const EventButton = styled.a`
-    padding: 20px;
-    /* font-size: 3vw; */
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     background-color: white;
-    /* width: 200px; */
     border-radius: 10px;
     border: 3px solid #7b67fe50;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     cursor: pointer;
     transition: border 500ms;
 
@@ -35,9 +34,11 @@ const EventButton = styled.a`
 const EventIcon = styled.video`
     width: 100%;
     height: 100%;
+    border-radius: 10px;
+
     /* object-fit: cover; */
 `
-export default function GenreIcon(props) {
+export default function GenreIconMobile(props) {
     const displayIcon = (() => {
         if (props.type === 'music') {
             return musicIcon;
@@ -55,12 +56,12 @@ export default function GenreIcon(props) {
     return (
         <Container>
             <EventButton href={`#${props.type}`}>
-            <EventIcon autoPlay muted>
-                <source src={displayIcon} type="video/mp4" />
-            </EventIcon>
+                <EventIcon autoPlay muted>
+                    <source src={displayIcon} type="video/mp4" />
+                </EventIcon>
             </EventButton>
-            <p style={{ fontSize: '1.5em', fontWeight: 800, textTransform: 'capitalize' }}>{props.type}</p>
-            <p style={{ color: 'gray' }}>51 events</p>
+            <p style={{ fontSize: '1em', fontWeight: 800, textTransform: 'capitalize' }}>{props.type}</p>
+            <p style={{ fontSize: '0.8em', color: 'gray' }}>51 events</p>
         </Container>
     );
 }
