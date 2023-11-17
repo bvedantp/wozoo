@@ -205,7 +205,7 @@ background: linear-gradient(93deg, rgba(12,6,27,1) 0%, rgba(59,47,123,1) 100%);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #E263B2;
+        background-color: #FF00B2;
         width: 10vw;
         height: 10vw;
         font-size: 5vw;
@@ -834,7 +834,7 @@ background: linear-gradient(93deg, rgba(12,6,27,1) 0%, rgba(59,47,123,1) 100%);
 `;function ds(e){return h.jsxs(nE,{bgColor:e.bgColor,children:[h.jsx(rE,{src:e.image}),h.jsxs(iE,{theme:e.theme,children:[h.jsxs(oE,{children:[h.jsx("img",{style:{height:"5vw"},src:va})," ",e.title]}),h.jsx(sE,{children:e.text})]})]})}ds.propTypes={image:J.string.isRequired,title:J.string.isRequired,text:J.string.isRequired,bgColor:J.string,theme:J.string};const aE=E.div`
     display: flex;
     /* height: 70vh; */
-    padding: 50px;
+    padding: 40px;
 `,lE=E.div`
     display: flex;
     flex-direction: column;
@@ -857,7 +857,7 @@ background: linear-gradient(93deg, rgba(12,6,27,1) 0%, rgba(59,47,123,1) 100%);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #E263B2;
+        background-color: #FF00B2;
         width: 60px;
         height: 60px;
         /* padding: 10px; */
