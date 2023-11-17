@@ -834,7 +834,7 @@ background: linear-gradient(93deg, rgba(12,6,27,1) 0%, rgba(59,47,123,1) 100%);
 `;function ds(e){return h.jsxs(nE,{bgColor:e.bgColor,children:[h.jsx(rE,{src:e.image}),h.jsxs(iE,{theme:e.theme,children:[h.jsxs(oE,{children:[h.jsx("img",{style:{height:"5vw"},src:va})," ",e.title]}),h.jsx(sE,{children:e.text})]})]})}ds.propTypes={image:J.string.isRequired,title:J.string.isRequired,text:J.string.isRequired,bgColor:J.string,theme:J.string};const aE=E.div`
     display: flex;
     /* height: 70vh; */
-    padding: 40px;
+    padding: 30px;
 `,lE=E.div`
     display: flex;
     flex-direction: column;
